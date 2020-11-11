@@ -64,8 +64,8 @@ It means all folder name and file name should be encrypted before transfer to cl
 customers want to see the real name with "quiz_cli".
 
 ## Requirements of Client-side encryption
-- When uploading a file via "quiz_cli", the file name should be encrypted via encrypt.FileNameCipher before upload to cloud.
-- When creating a folder via "quiz_cli", the folder name should be encrypted via encrypt.FileNameCipher before upload to cloud.
+- When uploading a file via "quiz_cli", the file name should be encrypted via encrypt.FileNameCipher before uploading to cloud.
+- When creating a folder via "quiz_cli", the folder name should be encrypted via encrypt.FileNameCipher before uploading to cloud.
 - When ls a folder via "quiz_cli", customers want to see the folder and file name in plaintext.
 - "quiz_cli" should have the ability to disable client-side encryption if customers want to. Customers might run multiple "quiz_cli"
   process to connect to different cloud storage, e.g. googledrive and dropbox, and Customers only want to encrypt for googledrive but
