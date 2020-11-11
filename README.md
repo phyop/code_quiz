@@ -71,4 +71,4 @@ customers want to see the real name with "quiz_cli".
   process to connect to different cloud storage, e.g. googledrive and dropbox, and Customers only want to encrypt for googledrive but
   not encrypt for dropbox.
 
-Please add the feature to "quiz_cli". Keep readability and flexibility in your design. Change is the only constant in life.
+Please add the feature to "quiz_cli". Keep readability, flexibility, and testability in your design. Change is the only constant in life.
