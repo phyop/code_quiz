@@ -5,11 +5,11 @@ from quiz.backend.cloudclient import MemoryCloudClient
 
 def arg_parse(func):
     def outerfunc(self, line):
-        # try:
+        try:
             args = tuple(line.split())
             return func(self, *args)
-        # except Exception as ex:
-        #     print('Syntax error', ex)
+        except Exception as ex:
+            print('Syntax error', ex)
     return outerfunc
 
 

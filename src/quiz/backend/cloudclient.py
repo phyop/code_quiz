@@ -56,12 +56,12 @@ class MemoryCloudClient(object):
     '''
     def __init__(self):
         self._map = {
-            "root": []
+            "/": []
         }
 
     @property
     def root_id(self):
-        return "dummy_root"
+        return "/"
 
     def upload_file(self, parent_id, name, data):
         is_dir = False
@@ -69,7 +69,9 @@ class MemoryCloudClient(object):
 
     def create_folder(self, parent_id, name):
         is_dir = True
-        return self._create_node(parent_id, name, is_dir)
+        node = self._create_node(parent_id, name, is_dir)
+        self._map[node.id] = []
+        return node
 
     def list_children(self, folder_id):
         try:
