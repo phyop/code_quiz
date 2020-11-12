@@ -56,7 +56,7 @@ Node({'id': 'a338a8e8-b95a-4c97-8854-d0e561daeaac', 'parent_id': '36b8759f-b785-
 
 ```
 
-# Development
+# New Feature
 Great! We have a utility "quiz_cli" to connect to cloud storage. We can use it to access data on cloud.
 
 Consider the following scenario, we have to add a new feature "client-side encryption" on it.
