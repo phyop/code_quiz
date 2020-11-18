@@ -1,5 +1,5 @@
 import cmd
-
+from quiz.encrypt import FileNameCipher
 from quiz.backend.cloudclient import MemoryCloudClient
 
 
@@ -21,18 +21,28 @@ class CommandLine(cmd.Cmd):
         super().__init__()
 
     @arg_parse
-    def do_upload(self, parent_id, name, data):
+    def do_upload(self, parent_id, name, data, encrypt="on"):
+        if encrypt == "on":
+            cipher = FileNameCipher()
+            name = cipher.encode(name)
         node = self._cloudclient.upload_file(parent_id, name, data)
         self._dump_nodes([node])
 
     @arg_parse
-    def do_mkdir(self, parent_id, name):
+    def do_mkdir(self, parent_id, name, encrypt="on"):
+        if encrypt == "on":
+            cipher = FileNameCipher()
+            name = cipher.encode(name)
         node = self._cloudclient.create_folder(parent_id, name)
         self._dump_nodes([node])
 
     @arg_parse
     def do_ls(self, folder_id):
         nodes = self._cloudclient.list_children(folder_id)
+        for node in nodes:
+            if type(node.name) == bytes:
+                cipher = FileNameCipher()
+                node.name = cipher.decode(node.name)
         self._dump_nodes(nodes)
 
     @arg_parse
